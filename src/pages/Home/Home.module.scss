@@ -1,0 +1,99 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/bg-ferma.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.left {
+  width: 350px;
+  background: #d9f7be;
+  height: 350px;
+  border-radius: 30px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  & > h1 {
+    font-size: 34px;
+    text-align: center;
+  }
+}
+
+.social {
+  & > p {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  & > ul {
+    display: flex;
+    justify-content: space-between;
+
+    & > li {
+      & > a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        color: black;
+
+        & > img {
+          width: 40px;
+          height: 40px;
+        }
+
+        & > p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.choise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  & > li {
+    position: relative;
+    & > a {
+      font-size: 18px;
+      font-weight: 700;
+      background: white;
+      padding: 10px 12px;
+      border-radius: 20px;
+    }
+
+    & > span {
+      // visibility: hidden;
+      transform: scale(0);
+      position: absolute;
+      bottom: 100%;
+      right: 100%;
+      border-radius: 20px;
+      background: #52c41a;
+      padding: 10px;
+      color: white;
+
+      font-size: 12px;
+
+      transition: 0.5s;
+    }
+
+    &:hover > span {
+      transform: scale(1);
+      // visibility: visible;
+    }
+  }
+}
