@@ -15,7 +15,7 @@ export const Home = () => {
                     </li>
 
                     <li>
-                        <Link to='/'>Фермер</Link>
+                        <Link to='/authorization'>Фермер</Link>
                         <span>Если вы хотите продавать свой товары</span>
 
                     </li>

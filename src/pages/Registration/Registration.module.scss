@@ -1,0 +1,83 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.753);
+  padding: 30px 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 2px black;
+
+  & > h1 {
+    color: black;
+  }
+}
+
+.form-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & > a {
+    color: black;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+
+  & > input,
+  & > select {
+    outline: none;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  & > select {
+    padding: 10px 5px;
+  }
+  & > label {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .eyes-icon {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+}
+
+.form-btns {
+  display: flex;
+  justify-content: space-between;
+
+  & > button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 1px black;
+    padding: 5px;
+  }
+}
+
+.form-btns {
+  display: flex;
+  justify-content: space-between;
+
+  & > button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 1px black;
+    padding: 5px;
+  }
+}
