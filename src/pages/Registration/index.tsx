@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Registration.module.scss'
-import {PiArrowFatLinesDownThin, PiEyeThin} from  'react-icons/pi'
+import { PiEyeThin} from  'react-icons/pi'
 import { Link } from 'react-router-dom';
 
 const districts: { country: string; location: [number, number] }[] = [
@@ -73,60 +73,66 @@ const districts: { country: string; location: [number, number] }[] = [
 export const Registration = () => {
     const [pasActive, setPasActive] = useState<boolean>(false)
 
+    const handleOnSubmit= (event: React.FormEvent<HTMLFormElement>) =>{
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const fields = Object.fromEntries(formData)
+        console.log(fields)
+    }
+
   return (
     <div className={styles.form}>
-            <h1>Регистрация</h1>
-        <form className={styles['form-inner']}>
-            
-            <div className={styles['form-item']}>
-                <label htmlFor="">Имя</label>
-                <input type="text" />
-            </div>
+      <h1>Регистрация</h1>
+      <form className={styles['form-inner']} onSubmit={handleOnSubmit}>
+        <div className={styles['form-item']}>
+          <label htmlFor="name">Имя</label>
+          <input type="text" id='name' name='name' />
+        </div>
 
-            <div className={styles['form-item']}>
-                <label htmlFor="">Фамилия</label>
-                <input type="text" />
-            </div>
+        <div className={styles['form-item']}>
+          <label htmlFor="surname">Фамилия</label>
+          <input type="text" id='surname' name='surname' />
+        </div>
 
-            <div className={styles['form-item']}>
-                <label htmlFor="">Телефон</label>
-                <input type="number" />
-            </div>
+        <div className={styles['form-item']}>
+          <label htmlFor="phone">Телефон</label>
+          <input type="number" id='phone' name='phone' />
+        </div>
 
-            <div className={styles['form-item']}>
-                <label htmlFor="">Адрес</label>
-                <input type="text" />
-            </div>
+        <div className={styles['form-item']}>
+          <label htmlFor="address">Адрес</label>
+          <input type="text" id='address' name='address' />
+        </div>
 
-            <div className={styles['form-item']}>
-                <label htmlFor="">Район/Город</label>
-                <select id="" >
-                    {districts.map((district, index) => (
-                            <option value={district.country} key={index}>
-                                {district.country}
-                            </option>
-                    ))}
-                </select>
-            </div>
+        <div className={styles['form-item']}>
+          <label htmlFor="localAddress">Район/Город</label>
+          <select id="localAddress" name='localAddress'>
+            {districts.map((district, index) => (
+              <option value={district.country} key={index}>
+                {district.country}
+              </option>
+            ))}
+          </select>
+        </div>
 
-            <div className={styles['form-item']}>
-                <label htmlFor="">Email</label>
-                <input type="email" />
-            </div>
+        <div className={styles['form-item']}>
+          <label htmlFor="email">Email</label>
+          <input type="email" id='email' name='email' />
+        </div>
 
-            <div className={styles['form-item']}>
-                <label htmlFor="">Пароль</label>
-                <input type={pasActive ? 'text' : 'password'} />
-            <PiEyeThin onClick={() => setPasActive(!pasActive)} className={styles['eyes-icon']} />
-            </div>
+        <div className={styles['form-item']}>
+          <label htmlFor="password">Пароль</label>
+          <input type={pasActive ? 'text' : 'password'} id='password' name='password' />
+          <PiEyeThin onClick={() => setPasActive(!pasActive)} className={styles['eyes-icon']} />
+        </div>
 
-            <Link to='/authorization'>Авторизация</Link>
+        <Link to='/authorization'>Авторизация</Link>
 
-            <div className={styles['form-btns']}>
-            <button>Очистить</button>
-            <button>Авторизоваться</button>
-            </div>
-        </form>
+        <div className={styles['form-btns']}>
+          <button type='reset'>Очистить</button>
+          <button type='submit'>Авторизоваться</button>
+        </div>
+      </form>
     </div>
   )
 }

@@ -6,10 +6,13 @@ import { Link } from 'react-router-dom';
 export const Auth = () => {
     const [pasActive, setPasActive] = useState<boolean>(false)
 
+    const handleOnSubmit= (event: React.FormEvent<HTMLFormElement>) =>{
+      event.preventDefault();
+}
   return (
     <div className={styles.form}>
         <h1>Авторизация</h1>
-      <form className={styles['form-inner']} >
+      <form className={styles['form-inner']} onSubmit={handleOnSubmit}>
         <div  className={styles['form-item']}>
             <label htmlFor="login">Логин</label>
             <input type="text" id='login'/>
